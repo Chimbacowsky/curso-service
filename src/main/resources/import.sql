@@ -1,0 +1,5 @@
+INSERT INTO curso (nombre_curso, descripcion_curso, nombre_docente) VALUES ('Curso de Programación Java', 'Un curso completo para aprender Java desde cero.', 'Juan Pérez');
+INSERT INTO curso (nombre_curso, descripcion_curso, nombre_docente) VALUES ('Curso de Desarrollo Web', 'Aprende a crear sitios web con HTML, CSS y JavaScript.', 'María García');
+INSERT INTO curso (nombre_curso, descripcion_curso, nombre_docente) VALUES ('Curso de Bases de Datos', 'Introducción a SQL y gestión de bases de datos.', 'Carlos Fernández');
+INSERT INTO curso (nombre_curso, descripcion_curso, nombre_docente) VALUES ('Curso de Machine Learning', 'Fundamentos y aplicaciones de Machine Learning con Python.', 'Laura López');
+INSERT INTO curso (nombre_curso, descripcion_curso, nombre_docente) VALUES ('Curso de Diseño Gráfico', 'Aprende a usar herramientas de diseño como Photoshop e Illustrator.', 'Pedro Martínez');
