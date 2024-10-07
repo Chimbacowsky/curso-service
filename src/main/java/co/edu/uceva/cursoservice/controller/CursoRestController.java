@@ -5,9 +5,7 @@ import co.edu.uceva.cursoservice.model.service.CursoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +16,7 @@ import java.util.Map;
 public class CursoRestController {
 
     @Autowired
-    private CursoServiceImpl celularservice;
+    private CursoServiceImpl cursoService;
 
     /*
     Metodo que lista los cursos.
@@ -28,7 +26,7 @@ public class CursoRestController {
         Map<String, Object> response = new HashMap<>();
         List<Curso> cursos = null;
         try {
-            cursos = this.celularservice.listar_curso();
+            cursos = this.cursoService.listar_curso();
         } catch (Exception e) {
             response.put("mensaje", "Error al listar los cursos");
             response.put("error", e.getMessage());
@@ -36,5 +34,8 @@ public class CursoRestController {
         }
         return new ResponseEntity<List<Curso>>(cursos, HttpStatus.OK);
     }
+
+
+
 
 }
