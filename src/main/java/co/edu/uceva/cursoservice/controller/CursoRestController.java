@@ -35,6 +35,14 @@ public class CursoRestController {
         return new ResponseEntity<List<Curso>>(cursos, HttpStatus.OK);
     }
 
+    /*
+    Metodo que guarda curso.
+     */
+    @PostMapping("/curso")
+    public Curso guardarCurso(@RequestBody Curso curso) {
+        return this.cursoService.save(curso);
+    }
+
 
 
 
