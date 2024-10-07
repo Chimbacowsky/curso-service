@@ -7,4 +7,5 @@ import java.util.List;
 public interface ICursoService {
 
     List<Curso> listar_curso();
+    Curso save(Curso curso);
 }

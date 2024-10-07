@@ -17,4 +17,9 @@ public class CursoServiceImpl implements ICursoService{
     public List<Curso> listar_curso() {
         return (List<Curso>) cursoDao.findAll();
     }
+
+    public Curso save(Curso curso) {
+        return cursoDao.save(curso);
+    }
+
 }
