@@ -9,4 +9,5 @@ public interface ICursoService {
     List<Curso> listar_curso();
     Curso save(Curso curso);
     Curso findById(Long id);
+    void delete(Curso curso);
 }

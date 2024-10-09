@@ -25,4 +25,7 @@ public class CursoServiceImpl implements ICursoService{
 
     @Override
     public Curso findById(Long id) { return cursoDao.findById(id).orElse(null); }
+
+    @Override
+    public void delete(Curso curso) { cursoDao.delete(curso);}
 }

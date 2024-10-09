@@ -51,5 +51,13 @@ public class CursoRestController {
         return this.cursoService.findById(id);
     }
 
+    //Método que elimina un curso
+    @DeleteMapping("/cursos/{id}")
+    public void borrarCurso(@PathVariable("id") Long id) {
+        Curso curso;
+        curso = cursoService.findById(id);
+        cursoService.delete(curso);
+    }
 
 }
+
