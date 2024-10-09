@@ -18,6 +18,7 @@ public class CursoServiceImpl implements ICursoService{
         return (List<Curso>) cursoDao.findAll();
     }
 
+    @Override
     public Curso save(Curso curso) {
         return cursoDao.save(curso);
     }
