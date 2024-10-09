@@ -43,7 +43,13 @@ public class CursoRestController {
         return this.cursoService.save(curso);
     }
 
-
+    /*
+        Metodo que busca curso por id.
+         */
+    @GetMapping("/cursos/{id}")
+    public Curso buscarCurso(@PathVariable long id) {
+        return this.cursoService.findById(id);
+    }
 
 
 }

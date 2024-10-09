@@ -23,4 +23,6 @@ public class CursoServiceImpl implements ICursoService{
         return cursoDao.save(curso);
     }
 
+    @Override
+    public Curso findById(Long id) { return cursoDao.findById(id).orElse(null); }
 }
