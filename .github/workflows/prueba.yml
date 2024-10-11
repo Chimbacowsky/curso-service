@@ -1,4 +1,62 @@
-name: prueba.yml
-on:
+name: Prueba
+on:       # Eventos que disparan el flujo de trabajo.
+    push:         # Evento push
+      branches: [ main ]        # Rama main
+    pull_request:       # Evento pull_request (PR)
+      branches: [ main ]        # Rama main
 
-jobs:
+jobs:       # Trabajos que se ejecutan en paralelo
+  integration-test:       # Nombre del trabajo integration-test (Pruebas de integración)
+    runs-on:  ubuntu-latest       # Sistema Operativo donde se ejecuta el trabajo.
+
+    services:       # Servicios que se ejecutan en paralelo
+      db:       # Nombre del servicio
+        image: postgres       # La imagen de Docker para usarla como contenedor para ejecutar el action
+        env:        # Variables de entorno que se pasan al servicio
+          POSTGRES_USER: devdb        # Usuario de la base de datos
+          POSTGRES_PASSWORD: a1b2c3d4         # Contraseña de la base de datos
+          POSTGRES_DB: curso_springboot       # Nombre de la base de datos
+        ports:        # Puertos que se exponen al servicio
+          - 5432:5432       # Puerto de la base de datos (5432:5432) (puerto_host:puerto_contenedor)
+
+
+    steps:        # Pasos que se ejecutan en el trabajo
+      - name: Haciendo checkout       # Nombre del paso
+        uses: actions/checkout@v3       # Accion que ejecuta el checkout del reposirotio
+
+      - name: Ajustando el JDK 17       # Nombre del paso
+        uses: actions/setup-java@v3        # Accion que ejecuta el  setup de java
+        with:       # Argumentos que se pasan a la accion
+          java-version: 17.x        # Version de java
+          distribution: adopt       # Distribucion de java que se instala
+          cache: maven        # Cache de maven, se usa para no descargar las dependencias de maven en cada ejecución
+
+      - name: Hacer build con Maven # Nombre del paso
+        run: mvn --batch-mode --update-snapshots clean package  # Comando que se ejecuta en el paso (mvn --batch-mode --update-snapshots clean package)
+
+      - name: Ejecutar las pruebas unitarias  # Nombre del paso
+        env:                                      # Variables de entorno que se pasan a application.properties de spring
+          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/curso_springboot    # URL de la base de datos
+          SPRING_DATASOURCE_USERNAME: devdb                                           # Usuario de la base de datos
+          SPRING_DATASOURCE_PASSWORD: a1b2c3d4                                        # Contraseña de la base de datos
+        run: mvn --batch-mode test                # Comando que se ejecuta en el paso
+
+      - name: Generar el reporte Sunfire HTML       # Nombre del paso
+        run: mvn surefire-report:report         # Comando que ejecuta el paso
+
+      - name: Copia el reporte Surefire HTML al repositorio       # Nombre del paso
+        run:        # Comando que ejecuta el paso
+          mkdir -p reports        # Crea la carpeta reports
+          cp -r target/surefire-reports/* reports/        # Se copia el reporte
+        if: always()        # Condicion que se evalua para ejecutar el paso
+
+      - name: Copia el reporte Surefire HTML al repositorio       # Nombre del paso
+        uses: action/upload-artifact@v3       # Accion que sube el artefacto al repositorio
+        with:       # Argumentos que se pasan a la accion
+          name: Reporte Surefire HTML       # Nombre del artefacto
+          path: target/site/surefire-report.html        # Ruta del artefacto
+
+
+
+
+
