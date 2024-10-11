@@ -44,14 +44,16 @@ public class CursoRestController {
     }
 
     /*
-        Metodo que busca curso por id.
-         */
+    Metodo que busca curso por id.
+    */
     @GetMapping("/cursos/{id}")
     public Curso buscarCurso(@PathVariable long id) {
         return this.cursoService.findById(id);
     }
 
-    //Método que elimina un curso
+    /*
+    Metodo que elimina curso por id.
+     */
     @DeleteMapping("/cursos/{id}")
     public void borrarCurso(@PathVariable("id") Long id) {
         Curso curso;
