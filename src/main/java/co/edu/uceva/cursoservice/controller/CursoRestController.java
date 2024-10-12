@@ -61,5 +61,13 @@ public class CursoRestController {
         cursoService.delete(curso);
     }
 
+    /*
+    Metodo que Actualiza curso
+     */
+    @PutMapping("/curso")
+    public Curso actualizarCurso(@RequestBody Curso curso) {
+        return this.cursoService.save(curso);
+    }
+
 }
 
