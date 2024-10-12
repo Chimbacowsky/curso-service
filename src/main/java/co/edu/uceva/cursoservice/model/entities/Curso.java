@@ -1,20 +1,21 @@
 package co.edu.uceva.cursoservice.model.entities;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import lombok.*;
 
 
 @Data
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String nombre_curso;
     private String descripcion_curso;
     private String nombre_docente;
