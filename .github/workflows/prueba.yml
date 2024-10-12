@@ -51,7 +51,7 @@ jobs:       # Trabajos que se ejecutan en paralelo
         if: always()        # Condicion que se evalua para ejecutar el paso
 
       - name: Copia el reporte Surefire HTML al repositorio       # Nombre del paso
-        uses: action/upload-artifact@v3       # Accion que sube el artefacto al repositorio
+        uses: actions/upload-artifact@v3       # Accion que sube el artefacto al repositorio
         with:       # Argumentos que se pasan a la accion
           name: Reporte Surefire HTML       # Nombre del artefacto
           path: target/site/surefire-report.html        # Ruta del artefacto
