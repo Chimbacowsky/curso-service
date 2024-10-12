@@ -1,9 +1,9 @@
 name: Prueba
 on:       # Eventos que disparan el flujo de trabajo.
-    push:         # Evento push
-      branches: [ main ]        # Rama main
-    pull_request:       # Evento pull_request (PR)
-      branches: [ main ]        # Rama main
+  push:         # Evento push
+    branches: [ main ]        # Rama main
+  pull_request:       # Evento pull_request (PR)
+    branches: [ main ]        # Rama main
 
 jobs:       # Trabajos que se ejecutan en paralelo
   integration-test:       # Nombre del trabajo integration-test (Pruebas de integración)
