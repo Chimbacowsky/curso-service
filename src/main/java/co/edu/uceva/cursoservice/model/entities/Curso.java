@@ -1,15 +1,17 @@
 package co.edu.uceva.cursoservice.model.entities;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
+import lombok.*;
 
 
 @Data
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="curso")
 public class Curso {
 
     @Id
