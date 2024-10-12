@@ -7,11 +7,6 @@ import lombok.*;
 
 @Data
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name="curso")
 public class Curso {
 
     @Id
