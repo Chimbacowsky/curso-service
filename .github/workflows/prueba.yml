@@ -19,7 +19,6 @@ jobs:       # Trabajos que se ejecutan en paralelo
         ports:        # Puertos que se exponen al servicio
           - 5432:5432       # Puerto de la base de datos (5432:5432) (puerto_host:puerto_contenedor)
 
-
     steps:        # Pasos que se ejecutan en el trabajo
       - name: Haciendo checkout       # Nombre del paso
         uses: actions/checkout@v3       # Accion que ejecuta el checkout del reposirotio
@@ -43,7 +42,6 @@ jobs:       # Trabajos que se ejecutan en paralelo
 
       - name: Generar el reporte Sunfire HTML       # Nombre del paso
         run: mvn surefire-report:report         # Comando que ejecuta el paso
-
       - name: Copia el reporte Surefire HTML al repositorio       # Nombre del paso
         run:        # Comando que ejecuta el paso
           mkdir -p reports        # Crea la carpeta reports

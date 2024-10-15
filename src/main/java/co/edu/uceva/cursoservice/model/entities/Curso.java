@@ -2,6 +2,7 @@ package co.edu.uceva.cursoservice.model.entities;
 
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 
