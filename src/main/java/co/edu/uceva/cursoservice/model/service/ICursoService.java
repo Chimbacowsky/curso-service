@@ -10,4 +10,5 @@ public interface ICursoService {
     Curso save(Curso curso);
     Curso findById(Long id);
     void delete(Curso curso);
+    Curso update(Curso curso);
 }

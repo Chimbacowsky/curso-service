@@ -28,4 +28,8 @@ public class CursoServiceImpl implements ICursoService{
 
     @Override
     public void delete(Curso curso) { cursoDao.delete(curso);}
+
+    @Override
+    public Curso update(Curso curso){ return cursoDao.save(curso);}
+
 }

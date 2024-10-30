@@ -13,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/curso-service")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CursoRestController {
 
     @Autowired
@@ -47,7 +48,7 @@ public class CursoRestController {
     Metodo que busca curso por id.
     */
     @GetMapping("/cursos/{id}")
-    public Curso buscarCurso(@PathVariable long id) {
+    public Curso buscarCurso(@PathVariable Long id) {
         return this.cursoService.findById(id);
     }
 
@@ -61,5 +62,10 @@ public class CursoRestController {
         cursoService.delete(curso);
     }
 
+    //Método para actualizar curso mediante PutMapping
+    @PutMapping("/cursos/{id}")
+    public Curso actualizarCurso(@RequestBody Curso curso){
+        return this.cursoService.update(curso);
+    }
 }
 
