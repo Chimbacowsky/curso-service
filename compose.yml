@@ -6,4 +6,4 @@ services:
       - 'POSTGRES_PASSWORD=a1b2c3d4'
       - 'POSTGRES_USER=devdb'
     ports:
-      - '5432'
+      - '5435:5432'
